@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/ap_bssid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.90"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:text="BSSID"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textSize="10sp"
+                android:hint="@string/ap_ssid"/>
+            <TextView
+                android:id="@+id/ap_ssid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textSize="10sp"
+                android:textColor="@android:color/black"
+                android:text="SSID"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textSize="10sp"
+                android:hint="@string/internetworking_ie_acess_net_title"/>
+            <TextView
+                android:id="@+id/internetworking_ie_access_net"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textSize="10sp"
+                android:textColor="@android:color/black"
+                android:text="Free Public Network"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textSize="10sp"
+                android:hint="@string/internetworking_ie_internet_title"/>
+            <TextView
+                android:id="@+id/internetworking_ie_internet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textSize="10sp"
+                android:textColor="@android:color/black"
+                android:text="Yes"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textSize="10sp"
+                android:hint="@string/internetworking_ie_venue_group_title"/>
+            <TextView
+                android:id="@+id/internetworking_ie_venue_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textSize="10sp"
+                android:textColor="@android:color/black"
+                android:text="Assembly"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textSize="10sp"
+                android:hint="@string/internetworking_ie_venue_type_title"/>
+            <TextView
+                android:id="@+id/internetworking_ie_venue_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textSize="10sp"
+                android:textColor="@android:color/black"
+                android:text="Convention Center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textSize="10sp"
+                android:hint="@string/internetworking_ie_hessid_title"/>
+            <TextView
+                android:id="@+id/internetworking_ie_hessid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textSize="10sp"
+                android:textColor="@android:color/black"
+                android:text="11:22:33:44:55:66"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textSize="10sp"
+                android:hint="@string/hotspot20_ie_active_title"/>
+            <TextView
+                android:id="@+id/hotspot20_ie_active"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textSize="10sp"
+                android:textColor="@android:color/black"
+                android:text="Yes"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
