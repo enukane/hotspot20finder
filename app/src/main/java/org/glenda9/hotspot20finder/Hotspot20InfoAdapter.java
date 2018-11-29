@@ -26,7 +26,6 @@ public class Hotspot20InfoAdapter extends ArrayAdapter<Hotspot20Info> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view;
-        TextView tv;
 
         if (convertView != null) {
             view = convertView;
@@ -49,7 +48,7 @@ public class Hotspot20InfoAdapter extends ArrayAdapter<Hotspot20Info> {
     }
 
     private void setTextView(View view, int id, String text) {
-        TextView tv = (TextView)view.findViewById(id);
+        TextView tv = view.findViewById(id);
         tv.setText(text);
     }
 
@@ -148,7 +147,7 @@ public class Hotspot20InfoAdapter extends ArrayAdapter<Hotspot20Info> {
                     case 6: return "Post Office";
                     case 7: return "Professional Office";
                     case 8: return "Research and Development Facility";
-                    case 9: return "Attomey Office";
+                    case 9: return "Attorney Office";
                     default: return "Unknown";
                 }
             case 3: /* Educational */
@@ -199,7 +198,7 @@ public class Hotspot20InfoAdapter extends ArrayAdapter<Hotspot20Info> {
                     case 0: return "Unspecified";
                     default: return "Unknown";
                 }
-            case 9: /* Utility and miscelaneous */
+            case 9: /* Utility and miscellaneous */
                 switch (venueType) {
                     case 0: return "Unspecified";
                     default: return "Unknown";

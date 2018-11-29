@@ -12,8 +12,6 @@ public class Hotspot20Info {
     public static final String SR_IE_MEMBER_ID="id";
     public static final String SR_IE_MEMBER_BYTES="bytes";
     public static final int IE_ID_INTERNETWORKING=107;
-    public static final int IE_LEN_INTERNETWORKING_WITH_VENUE=9;
-    public static final int IE_LEN_INTERNETWORKING_WITHOUT_VENUE=7;
     public static final int IE_ID_VENDORSPEC=221;
     public static final int IE_LEN_HOTSPOT20=5;
     public static final String OUI_WIFI_ALL = "50-6f-9a";
@@ -98,16 +96,16 @@ public class Hotspot20Info {
                             hessid_idx = idx++;
                             break;
                         default:
-                            Log.i(LOGNAME, "Internetworking IE length is wrong: " + String.valueOf((int)bytes.length));
+                            Log.i(LOGNAME, "Internetworking IE length is wrong: " + String.valueOf(bytes.length));
                             break;
                     }
 
                     this.isInternetworkingIE = true;
 
                     if (access_network_opt_idx >= 0) {
-                        this.accessNetworkType = (int)(bytes[access_network_opt_idx] & 0x0f);
-                        this.internetConnectivity = (int)(bytes[access_network_opt_idx] & 0x10) >> 4;
-                        this.asra = (int)(bytes[access_network_opt_idx] & 0x20) >> 5;
+                        this.accessNetworkType = (bytes[access_network_opt_idx] & 0x0f);
+                        this.internetConnectivity = (bytes[access_network_opt_idx] & 0x10) >> 4;
+                        this.asra = (bytes[access_network_opt_idx] & 0x20) >> 5;
                     }
 
                     if (venue_info_group_idx >= 0) {
@@ -130,9 +128,9 @@ public class Hotspot20Info {
                     int oui2_idx = 2;
                     int type_idx = 3;
                     int info_idx = 4;
-                    String oui = "";
+                    String oui;
 
-                    if (bytes.length != this.IE_LEN_HOTSPOT20) {
+                    if (bytes.length != IE_LEN_HOTSPOT20) {
                         /* check length for Hotspot 2.0 Indication length before OUI */
                         break;
                     }
@@ -166,6 +164,7 @@ public class Hotspot20Info {
         }
 
         /* check only Internetworking IE; Hotspot 2.0 Indication is optional */
+        this.isHotspot20 = this.isInternetworkingIE;
         return this.isInternetworkingIE;
     }
 

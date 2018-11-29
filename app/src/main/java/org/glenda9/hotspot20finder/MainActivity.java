@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String LOGNAME="hotspot20finder";
+    private static final String LOGNAME="hotspot20finder";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void doScan(View view) {
-        int total_ap = 0;
         String ssid_filter;
         List<ScanResult> apList = scanAP();
         List<Hotspot20Info> hs20Infos;
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public List<ScanResult> scanAP() {
+    private List<ScanResult> scanAP() {
         Log.i(LOGNAME, "start scanning");
 
         if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
-    public void clearCountAndList() {
+    private void clearCountAndList() {
         List<Hotspot20Info> emptyDisplayList = new ArrayList<>();
 
         /* update ap count */
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public List<Hotspot20Info> parseScanResultsToHotspot20Infos(List<ScanResult> scanResults, String ssid_filter) {
+    private List<Hotspot20Info> parseScanResultsToHotspot20Infos(List<ScanResult> scanResults, String ssid_filter) {
         List<Hotspot20Info> hs20Infos = new ArrayList<>();
 
         for (int i = 0; i < scanResults.size(); i++) {
