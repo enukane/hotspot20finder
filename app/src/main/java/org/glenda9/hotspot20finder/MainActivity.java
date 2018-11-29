@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void doScan(View view) {
         int total_ap = 0;
-        String ssid_filter = null;
+        String ssid_filter;
         List<ScanResult> apList = scanAP();
         List<Hotspot20Info> hs20Infos;
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /* get text input: to filter SSID */
-        EditText et = (EditText)findViewById(R.id.ssid_filter);
+        EditText et = findViewById(R.id.ssid_filter);
         ssid_filter = et.getText().toString();
         Log.i(LOGNAME, "ssidfilter => " + ssid_filter);
 
@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /* update ap count */
-        TextView tv = (TextView)findViewById(R.id.ap_count);
+        TextView tv = findViewById(R.id.ap_count);
         tv.setText(String.valueOf(hs20Infos.size()) + " ");
 
-        ListView lv = (ListView) findViewById(R.id.scan_listview);
+        ListView lv = findViewById(R.id.scan_listview);
         Hotspot20InfoAdapter adapter = new Hotspot20InfoAdapter(this, R.layout.scanlist_item, hs20Infos);
         lv.setAdapter(adapter);
 
@@ -96,25 +96,25 @@ public class MainActivity extends AppCompatActivity {
         List<Hotspot20Info> emptyDisplayList = new ArrayList<>();
 
         /* update ap count */
-        TextView tv = (TextView) findViewById(R.id.ap_count);
+        TextView tv = findViewById(R.id.ap_count);
         tv.setText(String.valueOf(0) + " ");
 
         /* update list */
-        ListView lv = (ListView) findViewById(R.id.scan_listview);
+        ListView lv = findViewById(R.id.scan_listview);
         Hotspot20InfoAdapter adapter = new Hotspot20InfoAdapter(this, R.layout.scanlist_item, emptyDisplayList);
         lv.setAdapter(adapter);
 
     }
 
     public List<Hotspot20Info> parseScanResultsToHotspot20Infos(List<ScanResult> scanResults, String ssid_filter) {
-        List<Hotspot20Info> hs20Infos = new ArrayList<Hotspot20Info>();
+        List<Hotspot20Info> hs20Infos = new ArrayList<>();
 
         for (int i = 0; i < scanResults.size(); i++) {
             ScanResult scanResult = scanResults.get(i);
             Hotspot20Info hs20info = new Hotspot20Info(scanResult);
             Boolean isHotspot20 = false;
 
-            if (ssid_filter != null && ssid_filter != "" && !scanResult.SSID.contains(ssid_filter)) {
+            if (ssid_filter != null && !ssid_filter.equals("") && !scanResult.SSID.contains(ssid_filter)) {
                 continue;
             }
 
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(LOGNAME, "IllegalAccessException, failed to parse IE");
             }
 
-            if (isHotspot20 == false) {
+            if (!isHotspot20) {
                 continue;
             }
 
