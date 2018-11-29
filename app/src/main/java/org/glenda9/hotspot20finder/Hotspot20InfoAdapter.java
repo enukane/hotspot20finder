@@ -43,6 +43,9 @@ public class Hotspot20InfoAdapter extends ArrayAdapter<Hotspot20Info> {
         setTextView(view, R.id.internetworking_ie_venue_type, convertVenueType(hs20info.venue_group, hs20info.venue_type));
         setTextView(view, R.id.internetworking_ie_hessid, hs20info.hessid);
         setTextView(view, R.id.hotspot20_ie_active, hs20info.isHotspot20IE ? "Yes" : "No");
+        if (hs20info.isHotspot20IE) {
+            setTextView(view, R.id.hotspot20_ie_release_number, convertHS20ReleaseNumber(hs20info.hotspot20ReleaseNumber));
+        }
 
         return view;
     }
@@ -227,6 +230,17 @@ public class Hotspot20InfoAdapter extends ArrayAdapter<Hotspot20Info> {
                     default: return "Unknown";
                 }
             default: /* Reserved */
+                return "Unknown";
+        }
+    }
+
+    private String convertHS20ReleaseNumber(int hotspot20ReleaseNumber) {
+        switch(hotspot20ReleaseNumber) {
+            case 0:
+                return "1";
+            case 1:
+                return "2";
+            default:
                 return "Unknown";
         }
     }

@@ -25,4 +25,7 @@
     <string name="hotspot20_ie_active_title">
         "    Hotspot 2.0 IE present:"
     </string>
+    <string name="hotspot20_ie_release_number">
+        "    Hotspot 2.0 Release:"
+    </string>
 </resources>
