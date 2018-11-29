@@ -165,11 +165,8 @@ public class Hotspot20Info {
 
         }
 
-        if (this.isInternetworkingIE && this.isHotspot20IE) {
-            this.isHotspot20 = true;
-        }
-
-        return this.isHotspot20;
+        /* check only Internetworking IE; Hotspot 2.0 Indication is optional */
+        return this.isInternetworkingIE;
     }
 
     private String bytesToMACAddress(byte[] bytes) {
