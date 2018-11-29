@@ -174,12 +174,12 @@ public class Hotspot20Info {
             return "00:00:00:00:00:00";
         }
 
-        return String.format("%02x", (int)bytes[0]) + ":" +
-                String.format("%02x", (int)bytes[1]) + ":" +
-                String.format("%02x", (int)bytes[2]) + ":" +
-                String.format("%02x", (int)bytes[3]) + ":" +
-                String.format("%02x", (int)bytes[4]) + ":" +
-                String.format("%02x", (int)bytes[5]);
+        return String.format("%02x", bytes[0]) + ":" +
+                String.format("%02x", bytes[1]) + ":" +
+                String.format("%02x", bytes[2]) + ":" +
+                String.format("%02x", bytes[3]) + ":" +
+                String.format("%02x", bytes[4]) + ":" +
+                String.format("%02x", bytes[5]);
     }
 
 }
